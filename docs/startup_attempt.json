@@ -1,0 +1,8 @@
+{
+  "recorded_at": "2026-11-13T11:32:56.145111+00:00",
+  "command": "python -m streamlit run app.py --server.address 127.0.0.1 --server.port 8501 --server.headless true",
+  "status": "blocked_by_environment",
+  "live_server_verified": false,
+  "diagnosis": "Windows denied local socket connect (WinError 10013). faulthandler located asyncio initialization waiting in socket.accept via _fallback_socketpair. Startup attempt was interrupted after diagnosis.",
+  "ui_alternative": "All six real Streamlit page scripts and a profile-save rerun passed AppTest using the explicit script-only loop adapter. This is not a running-server or browser check."
+}

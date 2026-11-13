@@ -1,0 +1,121 @@
+{
+  "executed_at": "2026-11-13T12:59:26.726060+00:00",
+  "services": {
+    "OpenAlex": {
+      "status": "live",
+      "records": 5,
+      "retrieved_at": "2026-11-13T12:59:26.683784+00:00",
+      "message": "Public records stored; matching can use the updated evidence."
+    },
+    "Vinnova": {
+      "status": "live",
+      "records": 219,
+      "retrieved_at": "2026-11-13T12:58:19.688796+00:00",
+      "message": "Public records stored; matching can use the updated evidence."
+    },
+    "company_website": {
+      "status": "unavailable",
+      "message": "Website could not be retrieved safely. Check robots, final URL and network access."
+    }
+  },
+  "logs": [
+    {
+      "id": 14,
+      "source": "https://api.openalex.org/works",
+      "status": "live_success",
+      "detail": "Live HTTP response validated and cached",
+      "created_at": "2026-11-13T12:59:26.689626+00:00"
+    },
+    {
+      "id": 13,
+      "source": "https://cleura.com/",
+      "status": "failed",
+      "detail": "ReadTimeout; page not imported",
+      "created_at": "2026-11-13T12:58:25.618974+00:00"
+    },
+    {
+      "id": 12,
+      "source": "https://data.vinnova.se/api/ansokningsomgangar/2026-08-15",
+      "status": "live_success",
+      "detail": "Live HTTP response validated and cached",
+      "created_at": "2026-11-13T12:58:19.715163+00:00"
+    },
+    {
+      "id": 11,
+      "source": "https://api.openalex.org/works",
+      "status": "failed",
+      "detail": "network_error: ReadTimeout",
+      "created_at": "2026-11-13T12:58:02.821168+00:00"
+    },
+    {
+      "id": 10,
+      "source": "https://cleura.com/",
+      "status": "failed",
+      "detail": "ReadTimeout; page not imported",
+      "created_at": "2026-11-13T12:52:32.285021+00:00"
+    },
+    {
+      "id": 9,
+      "source": "https://data.vinnova.se/api/ansokningsomgangar/2026-08-15",
+      "status": "live_success",
+      "detail": "Live HTTP response validated and cached",
+      "created_at": "2026-11-13T12:52:26.395664+00:00"
+    },
+    {
+      "id": 8,
+      "source": "https://api.openalex.org/works",
+      "status": "failed",
+      "detail": "network_error: ReadTimeout",
+      "created_at": "2026-11-13T12:52:15.652925+00:00"
+    },
+    {
+      "id": 7,
+      "source": "https://cleura.com/",
+      "status": "failed",
+      "detail": "ReadTimeout; page not imported",
+      "created_at": "2026-11-13T12:46:14.220365+00:00"
+    },
+    {
+      "id": 6,
+      "source": "https://data.vinnova.se/api/ansokningsomgangar/2026-10-01",
+      "status": "failed",
+      "detail": "ReadTimeout; no fabricated replacement returned",
+      "created_at": "2026-11-13T12:46:09.012752+00:00"
+    },
+    {
+      "id": 5,
+      "source": "https://api.openalex.org/works",
+      "status": "failed",
+      "detail": "ReadTimeout; no fabricated replacement returned",
+      "created_at": "2026-11-13T12:46:03.979872+00:00"
+    },
+    {
+      "id": 4,
+      "source": "https://cleura.com/",
+      "status": "failed",
+      "detail": "gaierror; page not imported",
+      "created_at": "2026-11-13T11:24:04.959546+00:00"
+    },
+    {
+      "id": 3,
+      "source": "https://data.vinnova.se/api/ansokningsomgangar/2026-10-01",
+      "status": "failed",
+      "detail": "ConnectionError; no fabricated replacement returned",
+      "created_at": "2026-11-13T11:24:04.954875+00:00"
+    },
+    {
+      "id": 2,
+      "source": "https://api.openalex.org/works",
+      "status": "failed",
+      "detail": "ConnectionError; no fabricated replacement returned",
+      "created_at": "2026-11-13T11:24:04.948475+00:00"
+    },
+    {
+      "id": 1,
+      "source": "public_snapshot",
+      "status": "snapshot_import",
+      "detail": "Manually reviewed public pages; not a live API response. Retrieval 2026-11-13.",
+      "created_at": "2026-11-13T11:24:04.926499+00:00"
+    }
+  ]
+}

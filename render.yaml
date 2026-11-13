@@ -1,0 +1,23 @@
+# Anonymous hackathon demo: session-local in-memory data; no paid disk or secrets.
+services:
+  - type: web
+    name: nexus-innovation-engine
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: python -m pip install -r requirements.txt
+    startCommand: python scripts/serve.py
+    healthCheckPath: /_stcore/health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: NEXUS_PUBLIC_DEMO
+        value: "1"
+      - key: NEXUS_ALLOW_PUBLIC_REFRESH
+        value: "1"
+      - key: NEXUS_EMBEDDINGS
+        value: tfidf
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: OPENBLAS_NUM_THREADS
+        value: "1"
+

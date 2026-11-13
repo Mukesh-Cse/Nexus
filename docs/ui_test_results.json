@@ -1,0 +1,51 @@
+{
+  "executed_at": "2026-11-13T12:58:11.298528+00:00",
+  "public_demo": false,
+  "method": "Streamlit AppTest with script-only loop adapter; real script and widgets, no server or asynchronous/network execution",
+  "results": [
+    {
+      "page": "Innovation Overview",
+      "exceptions": []
+    },
+    {
+      "page": "Company DNA",
+      "exceptions": []
+    },
+    {
+      "page": "Innovation Graph",
+      "exceptions": []
+    },
+    {
+      "page": "Opportunity Radar",
+      "exceptions": []
+    },
+    {
+      "page": "Innovation Blueprint",
+      "exceptions": []
+    },
+    {
+      "page": "Evaluation & Quality",
+      "exceptions": []
+    },
+    {
+      "profile_edit_persisted": true,
+      "ok": true,
+      "exceptions": []
+    },
+    {
+      "action": "Change ranking weights",
+      "ok": true,
+      "exceptions": []
+    },
+    {
+      "action": "Register company and save reviewed evidence",
+      "ok": true,
+      "exceptions": []
+    },
+    {
+      "action": "Refresh selected APIs button (mocked HTTP, no real network)",
+      "ok": true,
+      "exceptions": []
+    }
+  ]
+}

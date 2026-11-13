@@ -1,0 +1,283 @@
+{
+  "retrieval_note": "Reviewed through public-page retrieval during implementation. These are source-reviewed snapshots, not live connector test results. Dates with only a year retain that precision. Membership and capability assertions remain company self-reports, not an independent audit.",
+  "companies": [
+    {
+      "id": "baltic",
+      "name": "Baltic Offshore",
+      "website": "https://balticoffshore.se/",
+      "description": "Subsea cable installation, maintenance and repair for communications and power transmission.",
+      "domains": [
+        "marine",
+        "energy",
+        "digital"
+      ],
+      "claims": [
+        {
+          "text": "Public member directory lists Baltic Offshore.",
+          "category": "membership",
+          "source_url": "https://www.bluesciencepark.se/medlem/baltic-offshore/",
+          "excerpt": "Baltic Offshore",
+          "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+          "classification": "FACT",
+          "confidence": 1,
+          "verification_status": "source_reviewed",
+          "provenance": "public_snapshot"
+        },
+        {
+          "text": "Provides subsea cable installation and maintenance services.",
+          "category": "marine_operations",
+          "source_url": "https://www.bluesciencepark.se/medlem/baltic-offshore/",
+          "excerpt": "installation, underhåll och reparation av undervattenskablar",
+          "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+          "classification": "FACT",
+          "confidence": 1,
+          "verification_status": "source_reviewed",
+          "provenance": "public_snapshot"
+        },
+        {
+          "text": "Lists remotely operated underwater vehicle equipment.",
+          "category": "robotics",
+          "source_url": "https://balticoffshore.se/",
+          "excerpt": "ROV",
+          "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+          "classification": "FACT",
+          "confidence": 1,
+          "verification_status": "source_reviewed",
+          "provenance": "public_snapshot"
+        },
+        {
+          "text": "Works with cables for power transmission.",
+          "category": "energy",
+          "source_url": "https://www.bluesciencepark.se/medlem/baltic-offshore/",
+          "excerpt": "kraftöverföring",
+          "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+          "classification": "FACT",
+          "confidence": 1,
+          "verification_status": "source_reviewed",
+          "provenance": "public_snapshot"
+        }
+      ],
+      "interests": [],
+      "priority": "",
+      "revision": 0
+    },
+    {
+      "id": "cleura",
+      "name": "Cleura",
+      "website": "https://cleura.com/",
+      "description": "European provider of OpenStack-based cloud infrastructure and programmable IaaS.",
+      "domains": [
+        "digital"
+      ],
+      "claims": [
+        {
+          "text": "Public member directory lists Cleura.",
+          "category": "membership",
+          "source_url": "https://www.bluesciencepark.se/medlem/cleura/",
+          "excerpt": "Cleura",
+          "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+          "classification": "FACT",
+          "confidence": 1,
+          "verification_status": "source_reviewed",
+          "provenance": "public_snapshot"
+        },
+        {
+          "text": "Provides programmable cloud infrastructure powered by OpenStack.",
+          "category": "cloud",
+          "source_url": "https://cleura.com/",
+          "excerpt": "Programmable IaaS",
+          "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+          "classification": "FACT",
+          "confidence": 1,
+          "verification_status": "source_reviewed",
+          "provenance": "public_snapshot"
+        }
+      ],
+      "interests": [],
+      "priority": "",
+      "revision": 0
+    },
+    {
+      "id": "dnv",
+      "name": "DNV Cyber",
+      "website": "https://www.dnv.com/cyber/",
+      "description": "IT and operational technology cybersecurity services, including risk assessment, prevention and incident response.",
+      "domains": [
+        "marine",
+        "digital",
+        "energy"
+      ],
+      "claims": [
+        {
+          "text": "Public member directory lists DNV Cyber.",
+          "category": "membership",
+          "source_url": "https://www.bluesciencepark.se/medlem/dnv-cyber/",
+          "excerpt": "DNV Cyber",
+          "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+          "classification": "FACT",
+          "confidence": 1,
+          "verification_status": "source_reviewed",
+          "provenance": "public_snapshot"
+        },
+        {
+          "text": "Provides IT and OT cybersecurity services.",
+          "category": "cybersecurity",
+          "source_url": "https://www.dnv.com/cyber/",
+          "excerpt": "IT and OT security expertise",
+          "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+          "classification": "FACT",
+          "confidence": 1,
+          "verification_status": "source_reviewed",
+          "provenance": "public_snapshot"
+        }
+      ],
+      "interests": [],
+      "priority": "",
+      "revision": 0
+    },
+    {
+      "id": "malvacom",
+      "name": "Malvacom",
+      "website": "https://malvacom.com/",
+      "description": "Software engineering, system integration and AI automation serving public authorities and business customers.",
+      "domains": [
+        "marine",
+        "digital",
+        "energy"
+      ],
+      "claims": [
+        {
+          "text": "Public member directory lists Malvacom.",
+          "category": "membership",
+          "source_url": "https://www.bluesciencepark.se/medlem/malvacom/",
+          "excerpt": "Malvacom",
+          "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+          "classification": "FACT",
+          "confidence": 1,
+          "verification_status": "source_reviewed",
+          "provenance": "public_snapshot"
+        },
+        {
+          "text": "Builds software and integrates digital systems.",
+          "category": "software",
+          "source_url": "https://malvacom.com/",
+          "excerpt": "Mjukvaruutveckling, systemintegration och AI-automation",
+          "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+          "classification": "FACT",
+          "confidence": 1,
+          "verification_status": "source_reviewed",
+          "provenance": "public_snapshot"
+        },
+        {
+          "text": "Develops AI automation solutions.",
+          "category": "ai",
+          "source_url": "https://malvacom.com/",
+          "excerpt": "AI och automation",
+          "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+          "classification": "FACT",
+          "confidence": 1,
+          "verification_status": "source_reviewed",
+          "provenance": "public_snapshot"
+        }
+      ],
+      "interests": [],
+      "priority": "",
+      "revision": 0
+    }
+  ],
+  "records": [
+    {
+      "id": "W4399053898",
+      "kind": "research",
+      "title": "Enhancing Maritime Cybersecurity through Operational Technology Sensor Data Fusion: A Comprehensive Survey and Analysis",
+      "description": "Survey examines whether combining maritime operational sensor observations can help detect cyber incidents.",
+      "source_url": "https://openalex.org/works/W4399053898",
+      "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+      "publication_date": "2024",
+      "authors": [
+        "Georgios Potamos",
+        "Eliana Stavrou",
+        "Stavros Stavrou"
+      ],
+      "tags": [
+        "marine",
+        "cybersecurity",
+        "sensing",
+        "software"
+      ],
+      "provenance": "public_snapshot"
+    },
+    {
+      "id": "W4390270225",
+      "kind": "research",
+      "title": "Bridging the Gap: Enhancing Maritime Vessel Cyber Resilience through Security Operation Centers",
+      "description": "Examines maritime security operations, incident management, connectivity challenges and the role of domain knowledge.",
+      "source_url": "https://openalex.org/works/W4390270225",
+      "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+      "publication_date": "2023 (OpenAlex year; exact date not captured)",
+      "authors": [
+        "Allan Nganga",
+        "George Nganya",
+        "Margareta Lützhöft",
+        "Steven Mallam",
+        "Joel Scanlan"
+      ],
+      "tags": [
+        "marine",
+        "cybersecurity",
+        "software",
+        "digital"
+      ],
+      "provenance": "public_snapshot"
+    },
+    {
+      "id": "vinnova:cyber-ai-2026",
+      "kind": "funding",
+      "title": "Cybersäkerhet, AI och resiliens",
+      "description": "Research and innovation call for industrial cybersecurity, digital resilience and trustworthy AI. Potential relevance requires assessment of the full published conditions.",
+      "source_url": "https://www.vinnova.se/e/avancerad-digitalisering-industriell-2024-04161/cybersakerhet-ai-och-resiliens",
+      "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+      "opens_at": "2026-10-13T00:00:00+02:00",
+      "deadline": "2027-01-19T14:00:00+01:00",
+      "eligibility": "Consortium of at least two participants, including at least one Swedish industrial company. Other conditions apply; company eligibility has not been confirmed.",
+      "tags": [
+        "cybersecurity",
+        "ai",
+        "digital",
+        "software"
+      ],
+      "provenance": "public_snapshot"
+    },
+    {
+      "id": "blue-digital",
+      "kind": "testbed",
+      "title": "Blue Digital Testbed",
+      "description": "Published facilities support IoT, virtual and augmented reality, and cybersecurity experiments. Confirm equipment, access and current availability directly with the operator.",
+      "source_url": "https://www.bluesciencepark.se/test-arena-blekinge/blue-digital-testbed/",
+      "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+      "tags": [
+        "digital",
+        "sensing",
+        "cybersecurity",
+        "cloud",
+        "software"
+      ],
+      "provenance": "public_snapshot"
+    },
+    {
+      "id": "blue-maritime",
+      "kind": "testbed",
+      "title": "Blue Maritime Testbed",
+      "description": "Published underwater testing environment includes a remotely operated vehicle with sonar and a manipulator. Confirm suitability and access before proposing any deployment.",
+      "source_url": "https://www.bluesciencepark.se/test-arena-blekinge/blue-maritime-testbed/",
+      "retrieved_at": "2026-11-13T11:24:37.524116+00:00",
+      "tags": [
+        "marine",
+        "marine_operations",
+        "robotics",
+        "sensing"
+      ],
+      "provenance": "public_snapshot"
+    }
+  ]
+}

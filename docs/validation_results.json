@@ -1,0 +1,211 @@
+{
+  "executed_at": "2026-11-13T12:59:53.015549+00:00",
+  "runner": "unittest (pytest-compatible suite)",
+  "tests_run": 71,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "duration_seconds": 0.98,
+  "successful": true,
+  "live_integrations": "Not included; run scripts/live_check.py separately.",
+  "evaluation": {
+    "label_source": "Developer-authored synthetic labels; no human raters or held-out population. This is an algorithm sanity check.",
+    "candidate_count": 21,
+    "positive_count": 10,
+    "metrics": {
+      "complementarity": {
+        "precision_at_5": 1.0,
+        "recall_at_5": 0.5,
+        "top_5": [
+          "ai+cloud",
+          "ai+security",
+          "cloud+security",
+          "security+marine",
+          "sensor+ai"
+        ]
+      },
+      "similarity": {
+        "precision_at_5": 0.8,
+        "recall_at_5": 0.4,
+        "top_5": [
+          "software+ai",
+          "sensor+ai",
+          "security+marine",
+          "sensor+software",
+          "ai+marine"
+        ]
+      },
+      "ranking_differentiation": 0.6
+    },
+    "rows": [
+      {
+        "a": "sensor",
+        "b": "software",
+        "relevant": 1,
+        "rationale": "Plausible input/output or security dependency within a shared domain.",
+        "complementarity": 60,
+        "similarity": 12.66
+      },
+      {
+        "a": "sensor",
+        "b": "ai",
+        "relevant": 1,
+        "rationale": "Plausible input/output or security dependency within a shared domain.",
+        "complementarity": 60,
+        "similarity": 13.6
+      },
+      {
+        "a": "sensor",
+        "b": "cloud",
+        "relevant": 0,
+        "rationale": "No specific complementary dependency supported by this fixture.",
+        "complementarity": 0.0,
+        "similarity": 3.33
+      },
+      {
+        "a": "sensor",
+        "b": "security",
+        "relevant": 0,
+        "rationale": "No specific complementary dependency supported by this fixture.",
+        "complementarity": 0.0,
+        "similarity": 10.69
+      },
+      {
+        "a": "sensor",
+        "b": "marine",
+        "relevant": 0,
+        "rationale": "No specific complementary dependency supported by this fixture.",
+        "complementarity": 0.0,
+        "similarity": 10.69
+      },
+      {
+        "a": "sensor",
+        "b": "bakery",
+        "relevant": 0,
+        "rationale": "No specific complementary dependency supported by this fixture.",
+        "complementarity": 0.0,
+        "similarity": 3.63
+      },
+      {
+        "a": "software",
+        "b": "ai",
+        "relevant": 1,
+        "rationale": "Plausible input/output or security dependency within a shared domain.",
+        "complementarity": 60,
+        "similarity": 14.48
+      },
+      {
+        "a": "software",
+        "b": "cloud",
+        "relevant": 1,
+        "rationale": "Plausible input/output or security dependency within a shared domain.",
+        "complementarity": 60,
+        "similarity": 3.52
+      },
+      {
+        "a": "software",
+        "b": "security",
+        "relevant": 1,
+        "rationale": "Plausible input/output or security dependency within a shared domain.",
+        "complementarity": 60,
+        "similarity": 11.36
+      },
+      {
+        "a": "software",
+        "b": "marine",
+        "relevant": 1,
+        "rationale": "Plausible input/output or security dependency within a shared domain.",
+        "complementarity": 60,
+        "similarity": 11.36
+      },
+      {
+        "a": "software",
+        "b": "bakery",
+        "relevant": 0,
+        "rationale": "No specific complementary dependency supported by this fixture.",
+        "complementarity": 0.0,
+        "similarity": 3.84
+      },
+      {
+        "a": "ai",
+        "b": "cloud",
+        "relevant": 1,
+        "rationale": "Plausible input/output or security dependency within a shared domain.",
+        "complementarity": 60,
+        "similarity": 3.76
+      },
+      {
+        "a": "ai",
+        "b": "security",
+        "relevant": 1,
+        "rationale": "Plausible input/output or security dependency within a shared domain.",
+        "complementarity": 60,
+        "similarity": 12.17
+      },
+      {
+        "a": "ai",
+        "b": "marine",
+        "relevant": 0,
+        "rationale": "No specific complementary dependency supported by this fixture.",
+        "complementarity": 0.0,
+        "similarity": 12.17
+      },
+      {
+        "a": "ai",
+        "b": "bakery",
+        "relevant": 0,
+        "rationale": "No specific complementary dependency supported by this fixture.",
+        "complementarity": 0.0,
+        "similarity": 4.1
+      },
+      {
+        "a": "cloud",
+        "b": "security",
+        "relevant": 1,
+        "rationale": "Plausible input/output or security dependency within a shared domain.",
+        "complementarity": 60,
+        "similarity": 4.05
+      },
+      {
+        "a": "cloud",
+        "b": "marine",
+        "relevant": 0,
+        "rationale": "No specific complementary dependency supported by this fixture.",
+        "complementarity": 0.0,
+        "similarity": 4.05
+      },
+      {
+        "a": "cloud",
+        "b": "bakery",
+        "relevant": 0,
+        "rationale": "No specific complementary dependency supported by this fixture.",
+        "complementarity": 0.0,
+        "similarity": 0.0
+      },
+      {
+        "a": "security",
+        "b": "marine",
+        "relevant": 1,
+        "rationale": "Plausible input/output or security dependency within a shared domain.",
+        "complementarity": 60,
+        "similarity": 13.18
+      },
+      {
+        "a": "security",
+        "b": "bakery",
+        "relevant": 0,
+        "rationale": "No specific complementary dependency supported by this fixture.",
+        "complementarity": 0.0,
+        "similarity": 0.0
+      },
+      {
+        "a": "marine",
+        "b": "bakery",
+        "relevant": 0,
+        "rationale": "No specific complementary dependency supported by this fixture.",
+        "complementarity": 0.0,
+        "similarity": 0.0
+      }
+    ]
+  }
+}

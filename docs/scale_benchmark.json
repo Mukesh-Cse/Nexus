@@ -1,0 +1,11 @@
+{
+  "executed_at": "2026-11-13T11:32:42.302649+00:00",
+  "fixture": "40 synthetic copies of the four capability profiles; not additional real member companies",
+  "focal_searches": 1,
+  "companies": 40,
+  "returned_recommendations": 15,
+  "elapsed_seconds": 2.2801,
+  "candidate_partner_bound": 12,
+  "triple_partner_bound": 8,
+  "interpretation": "Single-process local timing only; excludes retrieval, embeddings downloads, concurrent users and browser rendering."
+}

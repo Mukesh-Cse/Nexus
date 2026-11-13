@@ -1,0 +1,208 @@
+{
+  "label_source": "Developer-authored manual synthetic labels; not human study data",
+  "profiles": [
+    {
+      "id": "sensor",
+      "description": "Connected sensing and environmental monitoring observations",
+      "capabilities": [
+        "sensing"
+      ],
+      "domains": [
+        "digital",
+        "marine"
+      ]
+    },
+    {
+      "id": "software",
+      "description": "Data integration and software services",
+      "capabilities": [
+        "software"
+      ],
+      "domains": [
+        "digital",
+        "marine"
+      ]
+    },
+    {
+      "id": "ai",
+      "description": "Machine learning prediction and analytics",
+      "capabilities": [
+        "ai"
+      ],
+      "domains": [
+        "digital",
+        "marine"
+      ]
+    },
+    {
+      "id": "cloud",
+      "description": "OpenStack cloud infrastructure hosting",
+      "capabilities": [
+        "cloud"
+      ],
+      "domains": [
+        "digital"
+      ]
+    },
+    {
+      "id": "security",
+      "description": "Operational cyber threat analysis",
+      "capabilities": [
+        "cybersecurity"
+      ],
+      "domains": [
+        "digital",
+        "marine"
+      ]
+    },
+    {
+      "id": "marine",
+      "description": "Subsea cable field operations",
+      "capabilities": [
+        "marine_operations"
+      ],
+      "domains": [
+        "digital",
+        "marine"
+      ]
+    },
+    {
+      "id": "bakery",
+      "description": "Bread and pastry retail",
+      "capabilities": [
+        "baking"
+      ],
+      "domains": [
+        "food"
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "a": "sensor",
+      "b": "software",
+      "relevant": 1,
+      "rationale": "Plausible input/output or security dependency within a shared domain."
+    },
+    {
+      "a": "sensor",
+      "b": "ai",
+      "relevant": 1,
+      "rationale": "Plausible input/output or security dependency within a shared domain."
+    },
+    {
+      "a": "sensor",
+      "b": "cloud",
+      "relevant": 0,
+      "rationale": "No specific complementary dependency supported by this fixture."
+    },
+    {
+      "a": "sensor",
+      "b": "security",
+      "relevant": 0,
+      "rationale": "No specific complementary dependency supported by this fixture."
+    },
+    {
+      "a": "sensor",
+      "b": "marine",
+      "relevant": 0,
+      "rationale": "No specific complementary dependency supported by this fixture."
+    },
+    {
+      "a": "sensor",
+      "b": "bakery",
+      "relevant": 0,
+      "rationale": "No specific complementary dependency supported by this fixture."
+    },
+    {
+      "a": "software",
+      "b": "ai",
+      "relevant": 1,
+      "rationale": "Plausible input/output or security dependency within a shared domain."
+    },
+    {
+      "a": "software",
+      "b": "cloud",
+      "relevant": 1,
+      "rationale": "Plausible input/output or security dependency within a shared domain."
+    },
+    {
+      "a": "software",
+      "b": "security",
+      "relevant": 1,
+      "rationale": "Plausible input/output or security dependency within a shared domain."
+    },
+    {
+      "a": "software",
+      "b": "marine",
+      "relevant": 1,
+      "rationale": "Plausible input/output or security dependency within a shared domain."
+    },
+    {
+      "a": "software",
+      "b": "bakery",
+      "relevant": 0,
+      "rationale": "No specific complementary dependency supported by this fixture."
+    },
+    {
+      "a": "ai",
+      "b": "cloud",
+      "relevant": 1,
+      "rationale": "Plausible input/output or security dependency within a shared domain."
+    },
+    {
+      "a": "ai",
+      "b": "security",
+      "relevant": 1,
+      "rationale": "Plausible input/output or security dependency within a shared domain."
+    },
+    {
+      "a": "ai",
+      "b": "marine",
+      "relevant": 0,
+      "rationale": "No specific complementary dependency supported by this fixture."
+    },
+    {
+      "a": "ai",
+      "b": "bakery",
+      "relevant": 0,
+      "rationale": "No specific complementary dependency supported by this fixture."
+    },
+    {
+      "a": "cloud",
+      "b": "security",
+      "relevant": 1,
+      "rationale": "Plausible input/output or security dependency within a shared domain."
+    },
+    {
+      "a": "cloud",
+      "b": "marine",
+      "relevant": 0,
+      "rationale": "No specific complementary dependency supported by this fixture."
+    },
+    {
+      "a": "cloud",
+      "b": "bakery",
+      "relevant": 0,
+      "rationale": "No specific complementary dependency supported by this fixture."
+    },
+    {
+      "a": "security",
+      "b": "marine",
+      "relevant": 1,
+      "rationale": "Plausible input/output or security dependency within a shared domain."
+    },
+    {
+      "a": "security",
+      "b": "bakery",
+      "relevant": 0,
+      "rationale": "No specific complementary dependency supported by this fixture."
+    },
+    {
+      "a": "marine",
+      "b": "bakery",
+      "relevant": 0,
+      "rationale": "No specific complementary dependency supported by this fixture."
+    }
+  ]
+}

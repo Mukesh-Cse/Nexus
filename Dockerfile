@@ -1,0 +1,10 @@
+FROM python:3.12-slim
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 NEXUS_PUBLIC_DEMO=1 NEXUS_ALLOW_PUBLIC_REFRESH=1 \
+    NEXUS_EMBEDDINGS=tfidf OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+WORKDIR /app
+COPY requirements.txt ./
+RUN python -m pip install -r requirements.txt
+COPY . .
+EXPOSE 10000
+CMD ["python", "scripts/serve.py"]
