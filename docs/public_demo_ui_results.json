@@ -1,10 +1,14 @@
 {
-  "executed_at": "2026-11-13T12:59:31.079725+00:00",
+  "executed_at": "2026-11-14T13:54:48.734379+00:00",
   "public_demo": true,
   "method": "Streamlit AppTest with script-only loop adapter; real script and widgets, no server or asynchronous/network execution",
   "results": [
     {
       "page": "Innovation Overview",
+      "exceptions": []
+    },
+    {
+      "page": "Member Directory",
       "exceptions": []
     },
     {

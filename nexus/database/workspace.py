@@ -8,6 +8,8 @@ def session_repository(state):
     if key not in state:
         repo=Repository(":memory:")
         bootstrap(repo)
+        from nexus.directory import import_directory
+        import_directory(repo)
         state[key]=repo
     return state[key]
 

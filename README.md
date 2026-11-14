@@ -6,7 +6,9 @@ NEXUS is a local hackathon prototype for Blue Science Park. It connects public, 
 
 ## Hosted deployment
 
-Render hosting configuration is included in `render.yaml`; see `docs/deployment.md`. The existing Render service selected Docker; its initial build failed because the repository has only .gitignore. A Dockerfile is now included for that service. Full source upload and a successful deployment remain pending. Set `NEXUS_PUBLIC_DEMO=1` for per-visitor in-memory workspaces. Edits survive session reruns but reset when the browser session ends; website imports and API-backed explanations are disabled in that anonymous demo. Public research/funding refresh is enabled by NEXUS_ALLOW_PUBLIC_REFRESH=1, with one refresh batch per minute. Local mode retains disk persistence.
+Live preview: https://nexus-646z.onrender.com/ . The existing Render service uses the included Dockerfile. The first four-company version was deployed and browser-checked; the directory update adds 56 source-linked organisations, field-level provenance and regional browsing. See docs/directory_verification_report.md and docs/directory_audit.json for the live crawl results.
+
+Public mode uses isolated session memory: edits and feedback reset when the session ends. Local mode persists to SQLite. Company login and durable hosted tenant storage remain unfinished. Public API refresh is enabled with a one-minute process-level cooldown. No confidential company data should be entered.
 
 ## Start here — Windows PowerShell
 
@@ -24,15 +26,15 @@ Open http://localhost:8501. After installing dependencies, Windows users can als
 
 The database is created and seeded automatically on first startup. No API keys or paid services are needed for the snapshot demonstration. The supplied public snapshot is a real source-reviewed dataset, not fictional companies or an API-response simulation.
 
-**Validation boundary:** 71 core tests passed; the exact results are in `docs/validation_results.json`. Network and local socket restrictions in the development runtime prevented a real browser/server startup. Script-level Streamlit UI execution is reported separately with its exact test adapter. Do not represent this as a verified live deployment.
+**Validation:** 80 automated core/integration tests passed. Script-level UI checks are separately recorded. The initial hosted dashboard, radar, graph keyboard evidence inspection and blueprint content were browser-checked. The directory update has its own acceptance checks; no human usefulness or accuracy study is claimed.
 
 ## Features
 
 New in this build: register a company in Company DNA, add source-reviewed capability evidence, and change the four ranking weights in the sidebar. User-supplied descriptions are labelled separately from sourced facts. Applied weights are included in exported blueprints.
 
 
-- Six views: Overview, Company DNA, Innovation Graph, Opportunity Radar, Innovation Blueprint, Evaluation & Quality.
-- Four public company profiles: Baltic Offshore, Cleura, DNV Cyber and Malvacom.
+- Seven views: Overview, Member Directory, Company DNA, Innovation Graph, Opportunity Radar, Innovation Blueprint, Evaluation & Quality.
+- 56 source-linked directory organisations, preserving the original four reviewed capability profiles. Original Swedish text, individual field sources, missing fields, aliases and source history are retained. Wider ecosystem coverage is unknown.
 - Claims retain source URL, excerpt, retrieval time, classification, confidence, review status and provenance.
 - User-entered public priorities/interests persist separately from sourced capabilities; revisions invalidate stored recommendations.
 - Bounded pair and triple candidate generation; explicit input/output and security dependencies distinguish complementarity from similarity.
@@ -83,7 +85,7 @@ Model loading is local-only; it never silently downloads a large model. Failure 
 
 ## External integrations and refresh
 
-Use Opportunity Radar → Refresh public intelligence, or:
+Use Opportunity Radar → Live API refresh → Refresh selected APIs, or:
 
 ```powershell
 python scripts/live_check.py
@@ -122,7 +124,7 @@ This still executes the real Streamlit script and widget state changes, but does
 
 The database is `data/nexus.sqlite3`, or the file configured in `NEXUS_DB`. Schema version 1 includes company/capability/evidence, research/funding/testbeds, opportunities, recommendations, hypotheses, revisions, feedback, private-note and retrieval-log tables, with indexes and foreign keys. Updates use optimistic revision checks.
 
-This is an explicitly single-user, loopback-only prototype. Public profile refinements and feedback are shared inside the local workspace. Do not enter confidential data. The backend private-note API requires an authenticated tenant context; the UI does not provide private data access or login. Production authentication, authorization context issuance, tenant isolation and audit deployment remain unfinished.
+Local mode is a single-user workspace. Hosted anonymous mode isolates browser sessions. Public profile refinements and feedback are shared inside the local workspace. Do not enter confidential data. The backend private-note API requires an authenticated tenant context; the UI does not provide private data access or login. Production authentication, authorization context issuance, tenant isolation and audit deployment remain unfinished.
 
 ## Demo
 
@@ -143,3 +145,11 @@ Validate capabilities and relevance with member companies first. For a pilot, ad
 
 The archive is a separate implementation from Prompt.txt. Existing NEXUS_Source.zip could not be downloaded in this restricted runtime and was preserved without modification.
 
+
+## Directory refresh
+
+The supplied audited seed has 55 organisations and is retained unchanged. An expanded live listing reached 56 cards and no Load More control; all 56 profile pages were retrieved. This verifies the observed public listing, not the full wider ecosystem. DNV Cyber employee band remains unpublished. No individual member/partner classes are guessed.
+
+Run `python scripts/crawl_blue_science_park.py --listing data/directory_listing_observation.json` to revisit the recorded URLs, or add `--retry-failed` to preserve successful fetches. For a NEW dynamic listing expansion, install optional Playwright, run `python -m playwright install chromium`, then `python scripts/crawl_blue_science_park.py --browser`. Optional browser dependencies are not required for the app. Both routes retain seed records and produce data/directory_snapshot.json and docs/directory_audit.json. Review changes before publishing a refreshed snapshot.
+
+Use Member Directory to search organisations and filter published places or Blekinge locations. Company DNA displays verification status and exact field sources. Geographic preference currently breaks ties between equally scored partners; there is no live event or webinar ingestion in this build. Ymner and company login are separate future integrations.

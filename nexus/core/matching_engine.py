@@ -4,6 +4,7 @@ import re
 from nexus.core.embeddings import similarity
 from nexus.core.scoring import score,WEIGHTS
 from nexus.models import freshness
+from nexus.regional import regional_alignment
 
 TAXONOMY = {
  "sensing": ["sensor","sensing","monitoring","iot","ocean monitoring devices"],
@@ -78,7 +79,7 @@ def bridge(records,query,tags,kind):
 
 def discover(focus, companies, records, limit=15, weights=None):
     score({},weights)
-    others=sorted([c for c in companies if c.id!=focus.id],key=lambda c:(-complementarity(focus,c),c.id))[:12]
+    others=sorted([c for c in companies if c.id!=focus.id],key=lambda c:(-complementarity(focus,c),-regional_alignment(focus,c),c.id))[:12]
     groups=[(focus,c) for c in others]
     groups += [(focus,a,b) for a,b in combinations(others[:8],2)]
     results=[]
@@ -123,7 +124,8 @@ def discover(focus, companies, records, limit=15, weights=None):
                 "profile_revisions":{c.id:c.revision for c in group}
             }
             results.append(rec)
-    return sorted(results,key=lambda r:(-r["score"],r["id"]))[:limit]
+    lookup={c.id:c for c in companies}
+    return sorted(results,key=lambda r:(-r["score"],-sum(regional_alignment(focus,lookup[cid]) for cid in r['companies'] if cid!=focus.id),r["id"]))[:limit]
 
 def baseline(focus,companies):
     return sorted([{"company":c.name,"id":c.id,"score":similarity(focus.public_text(),c.public_text())} for c in companies if c.id!=focus.id],key=lambda r:(-r["score"],r["id"]))

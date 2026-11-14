@@ -1,10 +1,24 @@
 {
-  "executed_at": "2026-11-13T12:58:11.298528+00:00",
+  "executed_at": "2026-11-14T13:56:32.627314+00:00",
   "public_demo": false,
   "method": "Streamlit AppTest with script-only loop adapter; real script and widgets, no server or asynchronous/network execution",
   "results": [
     {
       "page": "Innovation Overview",
+      "exceptions": []
+    },
+    {
+      "page": "Member Directory",
+      "exceptions": []
+    },
+    {
+      "action": "Search imported directory",
+      "ok": true,
+      "exceptions": []
+    },
+    {
+      "action": "Filter published Karlskrona locations",
+      "ok": true,
       "exceptions": []
     },
     {

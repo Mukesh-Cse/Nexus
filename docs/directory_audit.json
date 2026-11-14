@@ -1,0 +1,20 @@
+{
+  "seed_records": 55,
+  "seed_matches": 55,
+  "new_records": 1,
+  "duplicates": [
+    "https://www.bluesciencepark.se/medlem/hundtjanst-blekinge/"
+  ],
+  "total_records": 56,
+  "executed_at": "2026-11-14T13:53:17.092053+00:00",
+  "listing_card_count": 56,
+  "unique_profile_urls": 56,
+  "stable_listing_end": true,
+  "successful_profile_fetches": 56,
+  "failed_urls": [],
+  "missing_fields_by_column": {
+    "employee_range": 1
+  },
+  "ecosystem_coverage": "unknown",
+  "listing_profiles_checked": true
+}

@@ -1,11 +1,11 @@
 {
-  "executed_at": "2026-11-13T12:59:53.015549+00:00",
+  "executed_at": "2026-11-14T13:54:22.044298+00:00",
   "runner": "unittest (pytest-compatible suite)",
-  "tests_run": 71,
+  "tests_run": 80,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "duration_seconds": 0.98,
+  "duration_seconds": 7.37,
   "successful": true,
   "live_integrations": "Not included; run scripts/live_check.py separately.",
   "evaluation": {

@@ -2,9 +2,9 @@
 
 ## Current status
 
-Render service `srv-dbrgl2bm8hqs73d08ph0` now exists and selected the Docker runtime. Its first build failed on commit `40e32b347e4866ccf4182271bab472dbf3fb4e7a`: Dockerfile was missing. The public repository https://github.com/Mukesh-Cse/Nexus still contains only the initial .gitignore. A Dockerfile and credential-excluding .dockerignore are now prepared locally. The image has not been built locally because Docker is unavailable. Full source publication requires explicit approval; no successful hosted preview is claimed.
+The live preview is https://nexus-646z.onrender.com/ . Render service srv-dbrgl2bm8hqs73d08ph0 uses the Dockerfile. The initial four-company deployment from commit 67dc089a5bbca199381fc5beea7793394c3b104c was verified in a browser. The current source update adds 56 directory organisations and is verified by core and script-level UI tests before publication. Check the deployed directory page to verify this newer version after Render completes its build.
 
-Deployment details: https://dashboard.render.com/web/srv-dbrgl2bm8hqs73d08ph0/deploys/dep-dbrgl2rm8hqs73d08qag
+Source repository: https://github.com/Mukesh-Cse/Nexus . Public source publication was explicitly approved. The earlier missing-Dockerfile failure was resolved by publishing the complete app.
 
 ## Prepared configuration
 
@@ -27,7 +27,7 @@ Local mode keeps the existing disk-backed repository behavior. Use a paid persis
 
 ## Finish deployment
 
-1. Approve public source release to Mukesh-Cse/Nexus, or choose a private repository.
+1. Push the prepared update to the already authorised Mukesh-Cse/Nexus repository.
 2. Put the CONTENTS of NEXUS at the repository root so app.py, render.yaml and requirements.txt are at the root. Avoid committing .env, local databases or test caches.
 3. Connect the repository to Render. Use New → Blueprint to read render.yaml, or New → Web Service with the exact build/start settings above.
 4. Select the intended workspace, review the Free compute plan and create the service.

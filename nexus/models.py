@@ -64,6 +64,7 @@ class Company:
     priority: str = ""
     revision: int = 0
     provenance: str = "public_snapshot"
+    directory_profile: dict = field(default_factory=dict)
     def capabilities(self):
         return sorted({c.category for c in self.claims if c.supported() and c.category != "membership"})
     def public_text(self):

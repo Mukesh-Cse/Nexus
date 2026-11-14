@@ -26,7 +26,7 @@ if socket_free:
         def call_soon_threadsafe(self,callback,*args,context=None):
             return callback(*args)
     asyncio.new_event_loop=ScriptOnlyLoop
-pages=["Innovation Overview","Company DNA","Innovation Graph","Opportunity Radar","Innovation Blueprint","Evaluation & Quality"]
+pages=["Innovation Overview","Member Directory","Company DNA","Innovation Graph","Opportunity Radar","Innovation Blueprint","Evaluation & Quality"]
 results=[]
 with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as directory:
     os.environ["NEXUS_DB"]=str(Path(directory)/"ui.sqlite3")
@@ -37,6 +37,14 @@ with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as directory:
         results.append({"page":page,"exceptions":errors})
         if errors:
             print(errors)
+        if page=='Member Directory':
+            next(x for x in app.text_input if x.label=='Search organisations, industries and Swedish descriptions').set_value('Energimyndigheten').run()
+            table=app.dataframe[0].value
+            results.append({'action':'Search imported directory','ok':len(table)==1 and table.iloc[0]['Organisation']=='Energimyndigheten','exceptions':[e.message for e in app.exception]})
+            next(x for x in app.text_input if x.label=='Search organisations, industries and Swedish descriptions').set_value('').run()
+            next(x for x in app.multiselect if x.label=='Published locations').set_value(['Karlskrona']).run()
+            table=app.dataframe[0].value
+            results.append({'action':'Filter published Karlskrona locations','ok':len(table)>0 and all('Karlskrona' in value for value in table['Locations (as published)']),'exceptions':[e.message for e in app.exception]})
     app.sidebar.radio[0].set_value("Company DNA").run()
     next(x for x in app.text_input if x.label=="Public innovation priority").set_value("Maritime monitoring pilot")
     next(b for b in app.button if b.label=="Save profile & recalculate").click().run()

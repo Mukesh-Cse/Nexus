@@ -20,6 +20,7 @@ from nexus.integrations.company_sources import CompanySources
 from nexus.integrations.http import IntegrationError
 from nexus.integrations.llm import explain
 from nexus.config import load_environment,CONFIG_KEYS,credential_status
+from nexus.directory import import_directory,metadata_rows
 from streamlit.errors import StreamlitSecretNotFoundError
 
 ROOT=Path(__file__).parent
@@ -59,6 +60,7 @@ hr{border-color:#22334c!important}
 def repository(path):
     r=Repository(path)
     bootstrap(r)
+    import_directory(r)
     return r
 repo=session_repository(st.session_state) if PUBLIC_DEMO else repository(os.getenv("NEXUS_DB") or str(ROOT/"data"/"nexus.sqlite3"))
 companies=repo.companies()
@@ -67,7 +69,7 @@ records=repo.records()
 with st.sidebar:
     st.markdown('<div class="brand">◈ NEXUS</div><div class="brand-sub">INNOVATION CONNECTION ENGINE</div>',unsafe_allow_html=True)
     st.caption("BLUE SCIENCE PARK · PROTOTYPE")
-    page=st.radio("Workspace",["Innovation Overview","Company DNA","Innovation Graph","Opportunity Radar","Innovation Blueprint","Evaluation & Quality"],label_visibility="collapsed")
+    page=st.radio("Workspace",["Innovation Overview","Member Directory","Company DNA","Innovation Graph","Opportunity Radar","Innovation Blueprint","Evaluation & Quality"],label_visibility="collapsed")
     st.divider()
     focus_id=st.selectbox("Company perspective",[c.id for c in companies],format_func=lambda cid:next(c.name for c in companies if c.id==cid))
     st.caption("Public demo - changes stay in this browser session" if PUBLIC_DEMO else "Local single-user workspace - public profiles only")
@@ -79,6 +81,8 @@ with st.sidebar:
     st.caption("Public pages checked 13 Nov 2026. Snapshots remain available when APIs are offline.")
     st.caption("Matching: "+backend())
     st.caption("Private interactions are unavailable until authenticated tenancy is configured.")
+    st.caption(str(sum(bool(c.directory_profile) for c in companies))+" directory profiles · wider ecosystem coverage unknown")
+    st.caption("Equally scored collaborators prefer a shared published city, then a shared Blekinge location. Core C/O/R/E scores are unchanged.")
     with st.expander("API connections"):
         status=credential_status()
         st.caption("OpenAlex: "+("key configured" if status["OpenAlex key"] else "anonymous first-page access"))
@@ -197,6 +201,33 @@ if page=="Innovation Overview":
             for rec in ranked[:2]: rec_card(rec,"query:"+rec["id"])
         else: st.info(answer["boundary"]["message"])
 
+elif page=="Member Directory":
+    st.title("Member and partner directory")
+    st.caption("Source-linked organisations from the supplied audit and the expanded public listing. Individual membership classes are not disclosed. This is not a complete ecosystem census.")
+    directory_companies=[c for c in companies if c.directory_profile]
+    search=st.text_input("Search organisations, industries and Swedish descriptions")
+    cities=sorted({city for c in directory_companies for city in c.directory_profile.get('locations',[])})
+    places=st.multiselect("Published locations",cities)
+    local_only=st.checkbox("Show organisations with a published Blekinge location",value=False)
+    from nexus.regional import in_blekinge
+    entries=[]
+    for company in directory_companies:
+        p=company.directory_profile
+        if search and search.casefold() not in (company.name+' '+p.get('description_original_sv','')+' '+' '.join(p.get('industry_original_sv',[]))).casefold():continue
+        if places and not set(places)&set(p.get('locations',[])):continue
+        if local_only and not in_blekinge(p.get('locations',[])):continue
+        entries.append({'Organisation':company.name,'Industry (source Swedish)':', '.join(p.get('industry_original_sv',[])),
+                        'Locations (as published)':', '.join(p.get('locations',[])),'Employee band (as published)':p.get('employee_range') or 'Not published',
+                        'Profile evidence':p['blue_science_park_profile_url'],'Verification':p.get('profile_fetch_status','unknown'),
+                        'Last checked':p.get('last_verified_at',''),'Missing fields':', '.join(p.get('missing_fields',[])) or 'None recorded'})
+    st.write(str(len(entries))+" organisations shown")
+    st.dataframe(pd.DataFrame(entries),hide_index=True,width='stretch',column_config={'Profile evidence':st.column_config.LinkColumn('Profile evidence')})
+    audit_path=ROOT/'docs/directory_audit.json'
+    if audit_path.exists():
+        with st.expander("Directory coverage and crawl audit"):
+            st.json(json.loads(audit_path.read_text(encoding='utf-8')))
+    st.caption("Select a company in the sidebar, then open Company DNA to inspect each field's evidence. Location values are source-reported places, not independently verified office addresses.")
+
 elif page=="Company DNA":
     st.title("Company DNA")
     st.write("Evidence-backed capabilities. Human-refined direction.")
@@ -204,6 +235,20 @@ elif page=="Company DNA":
     st.write(focus.description)
     st.caption("Profile provenance: "+focus.provenance+". User-supplied descriptions and domains require source review.")
     source_link(focus.website,"Company website")
+    if focus.directory_profile:
+        profile=focus.directory_profile
+        st.info("Verification: "+profile.get('profile_fetch_status','unknown')+" · checked "+profile.get('last_verified_at','unknown'))
+        if profile.get('latest_fetch_status')=='failed':st.warning('Latest profile retrieval failed. The earlier supplied audit is retained with its original date.')
+        st.caption("Listed organisation; member-versus-partner class is not individually disclosed.")
+        st.write("**Original Swedish description**")
+        st.write(profile.get('description_original_sv') or 'Not published')
+        source_link(profile['blue_science_park_profile_url'],'Official directory profile')
+        st.caption("Missing fields: "+(', '.join(profile.get('missing_fields',[])) or 'None recorded')+". Fields are transcribed source claims, not an independent company registry audit.")
+        with st.expander("Field-by-field source evidence"):
+            st.dataframe(pd.DataFrame(metadata_rows(profile)),hide_index=True,width='stretch',column_config={'Evidence source':st.column_config.LinkColumn('Evidence source')})
+            st.caption(profile['domain_mapping_note'])
+    else:
+        st.caption("Verification: no audited directory profile attached. Review the individual claims below.")
     tabs=st.tabs(["Sourced facts","Inferred interests","Refine profile","Website review"])
     with tabs[0]:
         st.caption("Public-source claims and reviewed evidence. Each claim shows its own provenance and retrieval date.")
